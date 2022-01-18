@@ -1,12 +1,10 @@
-package com.example.musicbook;
+package com.example.musicbook.login_register;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.musicbook.R;
 import com.example.musicbook.ui.custom.CustomProgressDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -28,7 +27,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
-import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
     Button mRegisterBtn;
@@ -106,35 +104,35 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, dismiss dialog and start register activity
-
+//                            // Sign in success, dismiss dialog and start register activity
+//
                             FirebaseUser user = mAuth.getCurrentUser();
-
-                            //Get user email and uid from Auth
-                            String email=user.getEmail();
-                            String uid=user.getUid();
-                            //When user is registed store user info into firebase realtime database too
-                            //Using HashMap
+//
+//                            //Get user email and uid from Auth
+                             String email=user.getEmail();
+                             String uid=user.getUid();
+//                            //When user is registed store user info into firebase realtime database too
+//                            //Using HashMap
                             HashMap<Object,String> hashMap=new HashMap<>();
-                            //put info into hash
+//                            //put info into hash
                             hashMap.put("email",email);
                             hashMap.put("uid",uid);
-                            hashMap.put("name","");
-                            hashMap.put("phone","");
-                            hashMap.put("image","");
-                            hashMap.put("job","");
-                            hashMap.put("school","");
-                            hashMap.put("location","");
-                            hashMap.put("cover","");
-                            //firebase database instance
+//                            hashMap.put("name","");
+//                            hashMap.put("phone","");
+//                            hashMap.put("image","");
+//                            hashMap.put("job","");
+//                            hashMap.put("school","");
+//                            hashMap.put("location","");
+//                            hashMap.put("cover","");
+//                            //firebase database instance
                             FirebaseDatabase database=FirebaseDatabase.getInstance();
-                            //path to store user data
+//                            //path to store user data
                             DatabaseReference reference=database.getReference("Users");
-                            //put data within hashmap in database
+//                            //put data within hashmap in database
                             reference.child(uid).setValue(hashMap);
-
-                            Toast.makeText(RegisterActivity.this, "Registered....\n", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+//
+//                            Toast.makeText(RegisterActivity.this, "Đăng ký\n", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(RegisterActivity.this,First_Login_Activity.class));
                             finish();
 
                         } else {

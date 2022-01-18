@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.musicbook.ui.user.UserFragment;
+import com.example.musicbook.login_register.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class OptionActivity extends AppCompatActivity {
@@ -35,7 +35,7 @@ public class OptionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 firebaseAuth.getInstance().signOut();
-                startActivity(new Intent(OptionActivity.this,LoginActivity.class));
+                startActivity(new Intent(OptionActivity.this, LoginActivity.class));
             }
         });
     };

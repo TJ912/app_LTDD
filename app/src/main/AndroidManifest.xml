@@ -15,11 +15,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MusicBook">
-        <activity android:name=".ChatListActivity"></activity>
-        <activity android:name=".ChatActivity" />
+        <activity
+            android:name=".chat.AddChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login_register.First_Login_Activity"
+            android:exported="false" />
+        <activity android:name=".chat.ChatListActivity" />
+        <activity android:name=".chat.ChatActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".OptionActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".StatusActivity"/>
+        <activity android:name=".login_register.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".RegisterActivity">
+        <activity android:name=".login_register.RegisterActivity">
             <meta-data
                 android:name="com.support.PARENT_ACTIVITY"
                 android:value=".LoginActivity" />

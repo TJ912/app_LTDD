@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".chat.ChatListActivity">
+    tools:context=".chat.AddChatActivity">
 
     <ProgressBar
-        android:id="@+id/chat_list_pb"
+        android:id="@+id/addchat_list_pb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-        />
+    />
 
     <RelativeLayout
         android:id="@+id/relativeLayout5"
@@ -31,12 +31,12 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/sfprorounded"
-            android:text="Message"
+            android:text="Tin nhắn mới"
             android:textColor="@color/white"
             android:textSize="30sp" />
 
         <ImageView
-            android:id="@+id/back_mess_iv"
+            android:id="@+id/addchat_back_mess_iv"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_alignParentStart="true"
@@ -47,7 +47,7 @@
             android:src="@drawable/ic_action_back" />
 
         <ImageView
-            android:id="@+id/add_mess_iv"
+            android:id="@+id/add_chat_search_iv"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_alignParentTop="true"
@@ -55,10 +55,10 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_action_add_light" />
+            android:src="@drawable/ic_baseline_search_24" />
     </RelativeLayout>
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -74,21 +74,22 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/no_mess_tv"
+            <EditText
+                android:id="@+id/add_chat_edt_search"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Chưa có tin nhắn nào "
-                android:textAlignment="center"
-                android:textSize="30dp" />
-
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/search_custom"
+                android:hint="@string/search_text"
+                android:maxLines="1"
+                android:paddingStart="20dp" />
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/chat_list_rv"
+                android:id="@+id/add_chat_list_rv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

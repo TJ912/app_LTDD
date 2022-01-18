@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.musicbook.login_register.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -21,7 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         }
         else{
-            startActivity(new Intent(ProfileActivity.this,LoginActivity.class));
+            startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
             finish();
         }
 

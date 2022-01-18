@@ -16,4 +16,6 @@
     <color name="text_hint">#C4FFFFFF</color>
     <color name="blank_space">#DADADA</color>
     <color name="text_color_white">#F3F3F3</color>
+    <color name="text_hint1">#2F4F4F</color>
+    <color name="gray_input">#E3E3E3</color>
 </resources>

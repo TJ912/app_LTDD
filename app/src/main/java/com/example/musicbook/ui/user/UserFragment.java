@@ -426,18 +426,12 @@ public class UserFragment extends Fragment {
                 Log.d("onAR",String.valueOf(uri_image));
                 uploadProfileCoverPhoto(uri_image);
             }
-//            else{
-//                Toast.makeText(getActivity(), "null", Toast.LENGTH_SHORT).show();
-//            }
 
             if (resultCode==RESULT_OK&&requestCode == IMAGE_PICK_GALLERY_REQUEST_CODE&& data.getData()!=null) {
                 uri_image = data.getData();
                 Log.d("onAR",String.valueOf(uri_image));
                 uploadProfileCoverPhoto(uri_image);
             }
-
-
-
     }
 
     private void uploadProfileCoverPhoto(Uri uri) {
@@ -529,21 +523,21 @@ public class UserFragment extends Fragment {
                     result.put(key,value);
 
                     databaseReference.child(user.getUid()).updateChildren(result)
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    pd.dismiss();
-                                    Toast.makeText(getActivity(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                pd.dismiss();
+                                Toast.makeText(getActivity(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
 
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull @NotNull Exception e) {
-                                    pd.dismiss();
-                                    Toast.makeText(getActivity(), "Có lỗi gì đó đã xảy ra", Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull @NotNull Exception e) {
+                                pd.dismiss();
+                                Toast.makeText(getActivity(), "Có lỗi gì đó đã xảy ra", Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
                 } else {
                     Toast.makeText(getActivity(), "Hãy nhập " + key, Toast.LENGTH_SHORT).show();

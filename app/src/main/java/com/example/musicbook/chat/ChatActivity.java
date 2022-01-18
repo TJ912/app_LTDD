@@ -1,13 +1,11 @@
-package com.example.musicbook;
+package com.example.musicbook.chat;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
@@ -15,8 +13,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
+import com.example.musicbook.R;
 import com.example.musicbook.ui.adapter.MessageAdapter;
 import com.example.musicbook.ui.model.Messages;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -86,13 +84,14 @@ public class ChatActivity extends AppCompatActivity {
                 outRect.bottom=20;
             }
         };
-
+        mState.setText("Đang hoạt động");
         mMessageRV.setLayoutManager(linearLayoutManager);
         adapter=new MessageAdapter(messagesList,this);
         mMessageRV.setAdapter(adapter);
         mMessageRV.addItemDecoration(itemDecoration);
 
         Intent intent = getIntent();
+
         setSupportActionBar(toolbar);
 
         toolbar.setOnClickListener(new View.OnClickListener() {
@@ -114,15 +113,16 @@ public class ChatActivity extends AppCompatActivity {
         calendar = Calendar.getInstance();
         simpleDateFormat = new SimpleDateFormat("hh:mm a");
 
+        mName.setText(intent.getStringExtra("name"));
         mReceiverUID = getIntent().getStringExtra("receiverUID");
-        mReceiverName = getIntent().getStringExtra("receiverName");
-        String uri = intent.getStringExtra("imageuri");
+      //  mReceiverName = getIntent().getStringExtra("receiverName");
+        String uri = intent.getStringExtra("imageUri");
 
         mSenderUID=firebaseAuth.getUid();
         senderRoom = mSenderUID + mReceiverUID;
         receiverRoom = mReceiverUID + mSenderUID;
 
-        mName.setText(mReceiverName);
+      //  mName.setText(mReceiverName);
 
 
         if (uri.isEmpty()) {

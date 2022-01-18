@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:overScrollMode="never"
+    android:scrollbars="none"
+    android:clipToPadding="false"
+    android:layout_height="match_parent"
+    tools:context=".login_register.First_Login_Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Chào mừng đến với Singether"
+            android:textColor="@color/common_google_signin_btn_text_light"
+            android:textSize="20sp"
+            android:fontFamily="@font/bold"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Đăng nhập lần đầu"
+            android:textColor="@color/common_google_signin_btn_text_light"
+            android:textSize="20sp"
+            android:fontFamily="@font/bold"
+            android:textAlignment="center"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/fl_addPic"
+                android:layout_width="78dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/background_image"
+                android:scaleType="centerCrop"
+                app:riv_oval="true" />
+
+            <TextView
+                android:id="@+id/fl_text_addPic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Thêm ảnh"
+                android:textColor="@color/text_hint1"
+                android:textSize="10sp" />
+        </FrameLayout>
+        <EditText
+            android:id="@+id/fl_edt_name"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_input"
+            android:hint="Tên"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@color/text_hint1"
+            android:textSize="13sp"/>
+        <EditText
+            android:id="@+id/fl_edt_phone"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_input"
+            android:hint="SĐT"
+            android:imeOptions="actionNext"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@color/text_hint1"
+            android:textSize="13sp"/>
+        <EditText
+            android:id="@+id/fl_edt_location"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_input"
+            android:hint="Nơi ở"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@color/black"
+            android:textSize="13sp"/>
+        <EditText
+            android:id="@+id/fl_edt_school"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_input"
+            android:hint="Trường học"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@color/black"
+            android:textSize="13sp"/>
+        <EditText
+            android:id="@+id/fl_edt_job"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_input"
+            android:hint="Nghề nghiệp"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@color/text_hint1"
+            android:textSize="13sp"/>
+        <Button
+            android:id="@+id/fl_btn_next"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tiếp tục"
+            android:textColor="@color/white"
+            android:background="#0D30F1"/>
+    </LinearLayout>
+
+</ScrollView>

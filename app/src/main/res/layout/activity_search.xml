@@ -7,15 +7,24 @@
     android:layout_height="match_parent"
     tools:context=".SearchActivity">
 
+    <ProgressBar
+        android:id="@+id/search_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        app:layout_constraintHorizontal_weight="10"
         android:gravity="center"
         android:weightSum="10"
-
         app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_weight="10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -26,19 +35,17 @@
             android:layout_height="match_parent"
             android:layout_marginStart="20dp"
 
-            android:src="@drawable/ic_action_back_light"
-             />
+            android:src="@drawable/ic_action_back_light" />
 
         <EditText
             android:id="@+id/edt_search"
             android:layout_width="wrap_content"
-            android:layout_weight="10"
             android:layout_height="50dp"
+            android:layout_weight="10"
             android:background="@drawable/search_custom"
             android:hint="@string/search_text"
             android:maxLines="1"
-            android:paddingStart="20dp"
-             />
+            android:paddingStart="20dp" />
 
         <ImageView
             android:id="@+id/imv_search_search"
@@ -46,8 +53,7 @@
 
             android:layout_height="match_parent"
             android:layout_marginEnd="20dp"
-            android:src="@drawable/ic_baseline_search_24"
-           />
+            android:src="@drawable/ic_baseline_search_24" />
 
 
     </LinearLayout>

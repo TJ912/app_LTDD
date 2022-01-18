@@ -100,33 +100,33 @@
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/circleImageView3"
+            app:layout_constraintStart_toEndOf="@+id/post_avatar_imv"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/post_name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:fontFamily="@font/bold"
-                tools:ignore="HardcodedText,SpUsage"
                 android:text="Shivanshu"
                 android:textColor="@color/black"
-                android:textSize="19dp" />
+                android:textSize="19dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
             <TextView
-                android:id="@+id/username"
+                android:id="@+id/post_time_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/name"
+                android:layout_below="@+id/post_name_tv"
                 android:layout_alignParentStart="true"
                 android:layout_marginEnd="10dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/med"
-                tools:ignore="HardcodedText,SpUsage"
                 android:text="Text"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                tools:ignore="HardcodedText,SpUsage" />
         </RelativeLayout>
 
         <ImageView
@@ -141,7 +141,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleImageView3"
+            android:id="@+id/post_avatar_imv"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="12dp"
@@ -163,24 +163,24 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout7">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/post_caption_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:fontFamily="@font/bold"
-            android:text=""
             android:autoLink="all"
+            android:fontFamily="@font/bold"
             android:linksClickable="true"
-            android:textColorLink="#00BCD4"
+            android:text="caption"
             android:textColor="@color/black"
+            android:textColorLink="#00BCD4"
             android:textSize="16dp"
-            tools:ignore="SpUsage"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpUsage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -192,7 +192,8 @@
         app:layout_constraintTop_toBottomOf="@+id/viewlt">
 
         <RelativeLayout
-            android:id="@+id/relativeLayout"
+
+            android:id="@+id/likeLayout"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginStart="0dp"
@@ -240,7 +241,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/relativeLayout"
+            app:layout_constraintStart_toEndOf="@+id/likeLayout"
             app:layout_constraintTop_toTopOf="parent">
 
             <RelativeLayout

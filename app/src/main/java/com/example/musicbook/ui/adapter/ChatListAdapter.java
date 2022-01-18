@@ -1,5 +1,6 @@
 package com.example.musicbook.ui.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -7,12 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.musicbook.ChatActivity;
+import com.example.musicbook.chat.ChatActivity;
 import com.example.musicbook.R;
 import com.example.musicbook.ui.model.User;
 import com.squareup.picasso.Picasso;
@@ -31,9 +31,6 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.MyView
         this.users = users;
     }
 
-
-
-
     @NonNull
     @NotNull
     @Override
@@ -48,6 +45,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.MyView
         return new MyViewHolder(view);
     }
 
+    @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(@NonNull @NotNull ChatListAdapter.MyViewHolder holder, int position) {
        //get data
@@ -71,7 +69,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.MyView
                 Intent intent=new Intent(context, ChatActivity.class);
                 intent.putExtra("name",users.get(position).getName());
                 intent.putExtra("receiverUID",users.get(position).getUid());
-                intent.putExtra("imageuri",users.get(position).getImage());
+                intent.putExtra("imageUri",users.get(position).getImage());
                 context.startActivity(intent);
             }
         });

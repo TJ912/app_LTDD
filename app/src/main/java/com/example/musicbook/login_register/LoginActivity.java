@@ -1,4 +1,4 @@
-package com.example.musicbook;
+package com.example.musicbook.login_register;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -17,6 +18,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.musicbook.MainActivity;
+import com.example.musicbook.PreferencesManager.SaveLoginData;
+import com.example.musicbook.R;
 import com.example.musicbook.ui.custom.CustomProgressDialog;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -25,6 +29,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -33,6 +38,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -40,10 +48,13 @@ import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN=100;
+    private static final String ACCOUNT_EMAIL ="ACCOUNT_EMAIL" ;
+    private static final String ACCOUNT_PASSWORD ="ACCOUNT_PASSWORD" ;
     GoogleSignInClient mGoogleSignInClient;
     EditText mEmailEt, mPasswordEt;
     TextView notHaveAccountTv, mForgetPWtv;
     Button mLogInBtn, mLogInGoogleBtn;
+    SaveLoginData saveLoginData;
     private FirebaseAuth mAuth;
     //Progess dialog
     CustomProgressDialog progressDialog;
@@ -65,12 +76,17 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void init() {
+        saveLoginData=new SaveLoginData(getApplicationContext());
+
         mEmailEt = findViewById(R.id.edt_account);
         mPasswordEt = findViewById(R.id.edt_pass);
         mLogInBtn = findViewById(R.id.button_login);
         notHaveAccountTv = findViewById(R.id.tv_notacc);
         mLogInGoogleBtn = findViewById(R.id.button_logingoogle);
         mForgetPWtv = findViewById(R.id.forgot_tv);
+
+        mEmailEt.setText(saveLoginData.getAccount(ACCOUNT_EMAIL));
+        mPasswordEt.setText(saveLoginData.getAccount(ACCOUNT_PASSWORD));
 
         notHaveAccountTv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,11 +117,14 @@ public class LoginActivity extends AppCompatActivity {
                 //inputdata
                 String email = mEmailEt.getText().toString();
                 String password = mPasswordEt.getText().toString();
+
                 if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     //invalid email pattern set error
                     mEmailEt.setError("Invalid Email");
                     mEmailEt.setFocusable(true);
                 } else {
+                    saveLoginData.putAccount(ACCOUNT_EMAIL,email);
+                    saveLoginData.putAccount(ACCOUNT_PASSWORD,password);
                     loginUser(email, password);
                 }
             }
@@ -150,8 +169,8 @@ public class LoginActivity extends AppCompatActivity {
                                 //put info into hash
                                 hashMap.put("email",email);
                                 hashMap.put("uid",uid);
-                                hashMap.put("name","");
-                                hashMap.put("phone","");
+                                hashMap.put("name","Name");
+                                hashMap.put("phone","Phone Number");
                                 hashMap.put("image","");
                                 hashMap.put("job","");
                                 hashMap.put("school","");
@@ -164,12 +183,13 @@ public class LoginActivity extends AppCompatActivity {
                                 DatabaseReference reference=database.getReference("Users");
                                 //put data within hashmap in database
                                 reference.child(uid).setValue(hashMap);
-                            }
+                                Log.d("new login","true");
+                                startActivity(new Intent(LoginActivity.this,First_Login_Activity.class));
+                            }else
 
 
                             //user is logged in, so start MainActivity
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            finish();
                         } else {
                             progressDialog.dismiss();
                             Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
@@ -312,6 +332,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 
 
 }

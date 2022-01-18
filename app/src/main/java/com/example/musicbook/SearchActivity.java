@@ -15,6 +15,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,7 +40,7 @@ public class SearchActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<User> userList;
     EditText mSearchEdt;
-
+    ProgressBar mProgessBar;
     //firebase
     FirebaseUser fUser;
     DatabaseReference databaseReference;
@@ -55,6 +56,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     public void init() {
+        mProgessBar=findViewById(R.id.search_progressBar);
         recyclerView = findViewById(R.id.search_rcv);
         mBackImv = findViewById(R.id.imv_back_search);
         mSearchImv = findViewById(R.id.imv_search_search);
@@ -83,6 +85,7 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+                loading(true);
                 userList=getUserList(String.valueOf(s));
                 Log.d("Editalbe", String.valueOf(s));
                 listUserAdapter.notifyDataSetChanged();
@@ -93,6 +96,7 @@ public class SearchActivity extends AppCompatActivity {
         mSearchImv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                loading(true);
                 userList=getUserList(mSearchEdt.getText().toString());
                 listUserAdapter.notifyDataSetChanged();
             }
@@ -116,6 +120,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 userList.clear();
+                loading(false);
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     User user = ds.getValue(User.class);
 
@@ -123,8 +128,7 @@ public class SearchActivity extends AppCompatActivity {
                     if (!user.getUid().equals(fUser.getUid())) {
                         if(user.getName().toLowerCase().trim().contains(name.toLowerCase().trim())){
                             userList.add(user);
-                            Log.d("User", user.getName());
-                            Log.d("Userlist", String.valueOf(userList.size()));
+
                         }
 
 
@@ -146,4 +150,14 @@ public class SearchActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
+    public void loading(boolean flag){
+        if(flag){
+            mProgessBar.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.INVISIBLE);
+
+        }else{
+            mProgessBar.setVisibility(View.INVISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
+    }
 }

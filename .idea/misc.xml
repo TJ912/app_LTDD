@@ -3,6 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/drawable-anydpi/ic_action_back_light.xml" value="0.2703125" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/drawable-hdpi/ic_like.xml" value="0.2703125" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/drawable-hdpi/ic_liked.xml" value="0.2703125" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/drawable-v24/baseline_textsms_24.xml" value="0.2703125" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/drawable-v24/ic_search.xml" value="0.1" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/drawable/background_image.xml" value="0.14635416666666667" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/drawable/background_input.xml" value="0.1" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/drawable/receiver_chat_draw.xml" value="0.14635416666666667" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/drawable/search_custom.xml" value="0.14635416666666667" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/drawable/sender_chat_draw.xml" value="0.14635416666666667" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/layout/activity_add_chat.xml" value="0.16666666666666666" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/layout/activity_add_post.xml" value="0.176" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/layout/activity_chat.xml" value="0.4949290060851927" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/layout/activity_chat_list.xml" value="0.2504528985507246" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/layout/activity_first_login.xml" value="0.136" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/layout/activity_search.xml" value="0.1" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/layout/custom_dialog.xml" value="0.13645833333333332" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/layout/fragment_create_account.xml" value="0.2504528985507246" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/layout/fragment_user.xml" value="0.1" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/layout/post.xml" value="0.4" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/layout/receiver_chat_layout.xml" value="0.13020833333333334" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/layout/row_users.xml" value="0.4" />
+        <entry key="..\:/Git_ex/APP_LTDD/app_LTDD/app/src/main/res/layout/sender_chat_layout.xml" value="0.1" />
         <entry key="..\:/android/project/MusicBook/app/src/main/res/layout/fragment_user.xml" value="0.109375" />
       </map>
     </option>
